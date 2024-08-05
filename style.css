@@ -46,7 +46,16 @@ img {
 }
 
 
-/* Gray Scale */
+.heroes-covers {
+    animation-name: cover-anim;
+    animation-duration: 4s;
+  }
+  
+  @keyframes cover-anim {
+    from {opacity:.1}
+    to {opacity:1}
+  }
+
 .heroes-covers img {
     cursor: pointer;
 	-webkit-filter: grayscale(100%);
@@ -80,3 +89,4 @@ img {
     transform: translateX(50%);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.582);
 }
+
