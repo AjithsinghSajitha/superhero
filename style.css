@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+    background: #000;
+}
+
+img {
+  width: 400px;
+}
+
+
+#load, .heroes-covers {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  align-items: center;
+  justify-items: center;
+}
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side, #000 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: loading 1s infinite alternate linear;
+}
+
+.loader::before {
+  content: "Loading...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes loading {
+  100% {
+    background-position: left;
+  }
+}
+
+
+/* Gray Scale */
+.heroes-covers img {
+    cursor: pointer;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.heroes-covers img:hover {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+.cover-wrap{
+    display: inline-block;
+    position: relative;
+    transition: all .5s;
+    color: #00000000;
+}
+
+.cover-wrap:hover{
+    color:white;
+}
+
+.cover-wrap::after{
+    position: absolute;
+    content: attr(data-text);
+    z-index: 1;
+    right: 200px;
+    Top: 350px;
+    font-size: 1.6rem;
+    transform: translateX(50%);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.582);
+}
