@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&family=Sankofa+Display&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+  color: #fff;
+}
+
+img {
+  width: 400px;
+}
+
+.sankofa-display-regular {
+  font-family: "Sankofa Display", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+#load,
+.heroes-covers,
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  align-items: center;
+  justify-items: center;
+}
+
+.container{
+  text-align: center;
+}
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side, #000 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: loading 1s infinite alternate linear;
+}
+
+.loader::before {
+  content: "Loading...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes loading {
+  100% {
+    background-position: left;
+  }
+}
+
+.heroes-covers {
+  animation-name: cover-anim;
+  animation-duration: 4s;
+}
+
+@keyframes cover-anim {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.heroes-covers img {
+  position: relative;
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.heroes-covers img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  transform: perspective(500px) translateZ(50px);
+  z-index: 2;
+}
+
+.cover-wrap {
+  display: inline-block;
+  position: relative;
+  transition: all 0.5s ease-in;
+  color: #00000000;
+}
+
+.cover-wrap:hover {
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cover-wrap::after {
+  position: absolute;
+  content: attr(data-text);
+  z-index: 3;
+  right: 200px;
+  top: 350px;
+  font-size: 1.7rem;
+  transform: translateX(50%);
+}
+
+
+#comics-list{width: 100%;}
+td img{
+  width:200px
+}
+
+.td-name{
+  font-size: 1.5rem;
+  color: gray !important; 
+}
+.td-desc{
+  font-size: 1.3rem;
+  color: gray !important; 
+}
+
+#loading{
+  width: 90%;
+  margin: auto;
+}
+
+table caption{
+  color:white;
+  font-size: 2rem;
+  text-align: center;
+}
