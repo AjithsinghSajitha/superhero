@@ -20,8 +20,7 @@ img {
 }
 
 #load,
-.heroes-covers,
-.container {
+.heroes-covers {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100vh;
@@ -29,7 +28,10 @@ img {
   justify-items: center;
 }
 
-.container{
+.container {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -44,7 +46,7 @@ img {
 }
 
 .loader::before {
-  content: "Loading...";
+  content: attr(data-text);
   line-height: 1em;
   color: #0000;
   background: inherit;
@@ -111,28 +113,34 @@ img {
   transform: translateX(50%);
 }
 
-
-#comics-list{width: 100%;}
-td img{
-  width:200px
+#comics-list {
+  width: 100%;
+}
+td img {
+  width: 200px;
 }
 
-.td-name{
+.td-name {
   font-size: 1.5rem;
-  color: gray !important; 
+  color: gray !important;
 }
-.td-desc{
+.td-desc {
   font-size: 1.3rem;
-  color: gray !important; 
+  color: gray !important;
 }
 
-#loading{
+#loading-comic {
   width: 90%;
   margin: auto;
 }
 
-table caption{
-  color:white;
+#loading-series {
+  width: 90%;
+  margin: auto;
+}
+
+table caption {
+  color: white;
   font-size: 2rem;
   text-align: center;
 }

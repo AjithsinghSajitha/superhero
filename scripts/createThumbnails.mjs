@@ -42,8 +42,8 @@ const getHeroThumbnail = async (url) => {
       heroesCovers.setAttribute("style", "display: none;");
       await getHeroThumbnail(spiderUrl);
       await getHeroThumbnail(thorUrl);
-      await getHeroThumbnail(lokiUrl);
-      await getHeroThumbnail(ironUrl);
+      // await getHeroThumbnail(lokiUrl);
+      // await getHeroThumbnail(ironUrl);
       loading.setAttribute("style", "display: none;");
       heroesCovers.setAttribute("style", "display: grid;");
     } catch (error) {

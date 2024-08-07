@@ -24,7 +24,7 @@
         <div class="cover">
           <img src="" alt="" id="cover-img" />
         </div>
-        <div class="loader" id="loading"></div>
+        <div class="loader" id="loading-comic" data-text = "Comics Loading..."></div>
       </div>
       <div id="comics-list">
         <table class="table table-dark table-striped caption-top">
@@ -33,11 +33,26 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Comic name</th>
-              <th scope="col">Desc</th>
+              <th scope="col">Description</th>
               <th scope="col">Image</th>
             </tr>
           </thead>
           <tbody id="comic-list"></tbody>
+        </table>
+      </div>
+      <div class="loader" id="loading-series" data-text = "Series Loading..."></div>
+      <div id="series-list-container">
+        <table class="table table-dark table-striped caption-top">
+            <caption>Series List</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Series name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+          <tbody id="series-list"></tbody>
         </table>
       </div>
     </div>
