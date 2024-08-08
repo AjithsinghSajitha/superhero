@@ -63,7 +63,7 @@ img {
 
 .heroes-covers {
   animation-name: cover-anim;
-  animation-duration: 4s;
+  animation-duration: 5s;
 }
 
 @keyframes cover-anim {

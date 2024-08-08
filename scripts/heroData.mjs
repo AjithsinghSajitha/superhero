@@ -13,11 +13,7 @@ document.title = heroData.name;
 heroName.innerText = heroData.name;
 coverImg.setAttribute("src", path);
 
-async function run() {
-  await getComics(heroData.id);
-  await getSeries(heroData.id);
-  await getEvents(heroData.id);
-  await getStories(heroData.id);
-}
+let promises = [getComics(heroData.id), getSeries(heroData.id), getEvents(heroData.id), getStories(heroData.id)];
 
-run();
+Promise.all(promises)
+  .catch(error => console.log(error.message));

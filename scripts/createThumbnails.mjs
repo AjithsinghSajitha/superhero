@@ -10,6 +10,8 @@ const ironUrl = heroUrl("1009368");
 const thorUrl = heroUrl("1009664");
 const lokiUrl = heroUrl("1009407");
 
+let promises = [];
+
 /**
  * This will create an image elements by getting the characters thumbnail and other detail like name
  * @param {string} url - hero api url
@@ -40,12 +42,16 @@ const getHeroThumbnail = async (url) => {
   export const getThumbnails = async () => {
     try {
       heroesCovers.setAttribute("style", "display: none;");
-      await getHeroThumbnail(spiderUrl);
-      await getHeroThumbnail(thorUrl);
-      // await getHeroThumbnail(lokiUrl);
-      // await getHeroThumbnail(ironUrl);
-      loading.setAttribute("style", "display: none;");
-      heroesCovers.setAttribute("style", "display: grid;");
+      promises.push(getHeroThumbnail(spiderUrl));
+      promises.push(getHeroThumbnail(thorUrl));
+      promises.push(getHeroThumbnail(lokiUrl));
+      promises.push(getHeroThumbnail(ironUrl));
+
+      Promise.allSettled(promises)
+        .then((result) => {
+          loading.setAttribute("style", "display: none;");
+          heroesCovers.setAttribute("style", "display: grid;");
+        });
     } catch (error) {
       console.log("~ error:", error);
     }
