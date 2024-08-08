@@ -23,7 +23,7 @@ img {
 .heroes-covers {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100vh;
+  grid-template-rows: 25vh;
   align-items: center;
   justify-items: center;
 }
@@ -111,6 +111,12 @@ img {
   top: 350px;
   font-size: 1.7rem;
   transform: translateX(50%);
+}
+
+#description{
+  text-align: justify;
+margin: 25px 0;
+color: grey;
 }
 
 #comics-list {
