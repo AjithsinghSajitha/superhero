@@ -1,4 +1,3 @@
-
 /**
  * Will create table elements and assign values from the api
  * @param {string} url - api url
@@ -8,8 +7,8 @@
  */
 export const getDetails = async (url, tbody, element, loading) => {
   try {
-    const comics = await fetch(url);
-    const data = await comics.json();
+    const heroData = await fetch(url);
+    const data = await heroData.json();
     data.data.results.map((item, i) => {
       let tr = document.createElement("tr");
       let tdId = document.createElement("td");
@@ -22,7 +21,10 @@ export const getDetails = async (url, tbody, element, loading) => {
       let name = item.title;
       let desc = item.description ? item.description : "No description found";
       let thumb = item.thumbnail;
-      let path = `${thumb.path}.${thumb.extension}`;
+
+      let path = !thumb
+        ? "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+        : `${thumb.path}.${thumb.extension}`;
 
       img.setAttribute("src", path);
       img.setAttribute("alt", name);

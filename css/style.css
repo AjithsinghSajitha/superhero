@@ -129,12 +129,7 @@ td img {
   color: gray !important;
 }
 
-#loading-comic {
-  width: 90%;
-  margin: auto;
-}
-
-#loading-series {
+#loading-comic, #loading-series, #loading-events, #loading-stories {
   width: 90%;
   margin: auto;
 }

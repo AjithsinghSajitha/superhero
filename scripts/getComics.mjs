@@ -1,4 +1,4 @@
-import { comicUrl } from "./urls.mjs";
+import { comicsUrl } from "./urls.mjs";
 import { getDetails } from "./getDetails.mjs";
 
 let tbody = document.getElementById("comic-list");
@@ -10,5 +10,5 @@ comicsList.setAttribute("style", "display: none;");
  * @param {string} id - hero id
  */
 export const getComics = async (id) => {
-    await getDetails(comicUrl(id),tbody,comicsList, loading);
+    await getDetails(comicsUrl(id),tbody,comicsList, loading);
 };
