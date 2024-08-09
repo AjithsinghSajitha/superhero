@@ -9,6 +9,14 @@ export const getDetails = async (url, tbody, element, loading) => {
   try {
     const heroData = await fetch(url);
     const data = await heroData.json();
+
+    if(!data.data.results.length){
+      element.innerText = 'No data found'
+      loading.setAttribute("style", "display: none;");
+      element.setAttribute("style", "display: block;");
+      return;
+    }
+
     data.data.results.map((item, i) => {
       let tr = document.createElement("tr");
       let tdId = document.createElement("td");

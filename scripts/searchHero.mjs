@@ -32,6 +32,12 @@ const searchResult = async () => {
 
         li.append(img);
         li.append(span);
+
+        li.addEventListener('click', () => {
+            localStorage.setItem("Hero",JSON.stringify(hero));
+            window.open('hero.html');
+        })
+
         ul.append(li);
         searchResultElement.append(ul);
       });
