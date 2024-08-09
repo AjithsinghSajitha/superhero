@@ -8,6 +8,7 @@ searchBtn.addEventListener('click',()=>{
   
   window.open('pages/searchResult.html');
   localStorage.setItem("SearchTerm", searchTerm);
+  search.value ='';
 });
 
 (function init() {
