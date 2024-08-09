@@ -268,4 +268,5 @@ ul li img{
   height: 100px;
   margin-right: 30px;
   filter: grayscale();
+  transition: all .7s;
 }
