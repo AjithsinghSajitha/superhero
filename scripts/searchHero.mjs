@@ -10,8 +10,8 @@ const searchResult = async () => {
     const data = await heroData.json();
     let count = parseInt(data.data.total);
     count
-      ? (searchCount.innerText = `Result Found: ${count}`)
-      : (searchCount.innerText = "no result");
+      ? (searchCount.innerText = `Result found: ${count}`)
+      : (searchCount.innerText = "No result found");
 
     if (count) {
       let ul = document.createElement("ul");
