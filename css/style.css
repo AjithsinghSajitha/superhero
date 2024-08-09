@@ -23,7 +23,7 @@ img {
 .heroes-covers {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 25vh;
+  grid-template-rows: 100vh;
   align-items: center;
   justify-items: center;
 }
@@ -144,4 +144,56 @@ table caption {
   color: white;
   font-size: 2rem;
   text-align: center;
+}
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  width: 50%;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 25px;
+  border-radius: 15px;
+}
+
+.search input{
+  width:500px;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
+input[type="text"] {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+}
+input[type="text"]:focus {
+  outline: none;
+  border: none;
+}
+input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.button {
+  background-color: rgb(104, 104, 104);
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border: none;
+  color: grey;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.75rem;
+  margin: 5px 5px;
+  cursor: pointer;
+  transition: all .4s;
+}
+
+.button:hover{
+  color: #000;
 }
