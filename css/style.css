@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&family=Sankofa+Display&display=swap");
 
+:root{
+  --image-radius: 14px;
+  --search-radius: 10px;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -97,6 +102,16 @@ img {
   color: #00000000;
 }
 
+.cover-wrap:first-child img{
+  border-top-left-radius: var(--image-radius);
+  border-bottom-left-radius: var(--image-radius);
+}
+
+.cover-wrap:last-child img{
+  border-top-right-radius: var(--image-radius);
+  border-bottom-right-radius: var(--image-radius);
+}
+
 .cover-wrap:hover {
   color: white;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.5);
@@ -156,13 +171,23 @@ table caption {
   height: 50px;
   margin: auto;
   margin-bottom: 25px;
-  border-radius: 15px;
+  border-radius: var(--search-radius);
 }
 
 .search input {
   width: 500px;
   font-size: 2rem;
+  margin-left: 10px;
+}
+.input-and-icon{
+  display: flex;
+  justify-content: center;
+}
+
+.fa-magnifying-glass{
+  padding: 10px 0;
   margin-left: 20px;
+  font-size: 1.75rem;
 }
 
 input[type="text"] {
@@ -182,8 +207,8 @@ input::placeholder {
 
 .button {
   background-color: rgb(104, 104, 104);
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
+  border-top-right-radius: var(--search-radius);
+  border-bottom-right-radius: var(--search-radius);
   border: none;
   color: grey;
   padding: 5px 32px;
