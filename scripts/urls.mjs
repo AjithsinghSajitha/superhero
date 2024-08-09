@@ -10,3 +10,5 @@ export const eventsUrl = (hero) =>
     `https://gateway.marvel.com/v1/public/characters/${hero}/events?apikey=36394e08b19938075eb6d89ad0792c70&ts=1721807370&hash=33cd5c84466598587c29794cee7adbe0&offset=0&limit=5`;
 export const storiesUrl = (hero) => 
     `https://gateway.marvel.com/v1/public/characters/${hero}/stories?apikey=36394e08b19938075eb6d89ad0792c70&ts=1721807370&hash=33cd5c84466598587c29794cee7adbe0&offset=0&limit=5`;
+export const searchUrl = (name) => 
+    `https://gateway.marvel.com/v1/public/characters?apikey=36394e08b19938075eb6d89ad0792c70&ts=1721807370&hash=33cd5c84466598587c29794cee7adbe0&offset=0&limit=30&nameStartsWith=${name}`;
