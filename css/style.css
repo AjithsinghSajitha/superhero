@@ -211,12 +211,12 @@ input::placeholder {
   border-bottom-right-radius: var(--search-radius);
   border: none;
   color: grey;
+  height: 50px;
   padding: 5px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 1.75rem;
-  margin: 5px 5px;
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -268,15 +268,19 @@ ul li img{
   width: 100px;
   height: 100px;
   filter: grayscale();
-  transition: all .7s;
+  transition: all .6s;
 }
 
 .fa-star{
   margin: 0 20px;
   font-size: larger;
-  transition: all .4s;
+  transition: all .3s;
 }
 
 .fa-star:hover{
   color: yellow;
+}
+
+.star-yellow{
+  color:yellow;
 }

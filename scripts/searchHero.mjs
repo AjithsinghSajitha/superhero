@@ -1,4 +1,5 @@
 import { searchUrl } from "./urls.mjs";
+import { addOrRemoveFavorite } from "./setFavorite.mjs";
 
 let searchTerm = localStorage.getItem("SearchTerm");
 let searchCount = document.getElementById("search-count");
@@ -20,6 +21,7 @@ const searchResult = async () => {
         let span = document.createElement("span");
         let favorite = document.createElement("span");
         let img = document.createElement("img");
+        let favItem = JSON.parse(localStorage.getItem("favorite"));
         let name = hero.name;
         let thumb = hero.thumbnail;
 
@@ -30,46 +32,24 @@ const searchResult = async () => {
         img.setAttribute("src", path);
         img.setAttribute("alt", name);
         span.innerText = `${i + 1}) ${name}`;
-        favorite.innerHTML ='<i class="fa-solid fa-star"></i>';
+        favorite.innerHTML = '<i class="fa-solid fa-star"></i>';
+
+        favItem.map((item) => {
+          if (item.id == hero.id) {
+            favorite.classList.add("star-yellow");
+          }
+        });
+        
+        addOrRemoveFavorite(favorite, hero);
+
+        li.addEventListener("click", () => {
+          localStorage.setItem("Hero", JSON.stringify(hero));
+          window.open("hero.html");
+        });
 
         li.append(img);
         li.append(favorite);
         li.append(span);
-
-        favorite.addEventListener('click',(e)=> {
-          e.stopPropagation();
-          if(!localStorage.getItem('favorite')){
-            localStorage.setItem('favorite', JSON.stringify([hero]))
-          }
-          else{
-            let fav = JSON.parse(localStorage.getItem("favorite"));
-            // let item = fav.filter(item => item.id == hero.id)
-            let index = -1;
-            let isAlreadyExist;
-            fav.every((item, i) => {
-              if(item.id == hero.id){
-                isAlreadyExist = true;
-                index = i;
-                return false;
-              }
-              return true;
-            });
-            
-            if(isAlreadyExist){
-              console.log(index);
-            }
-            else{
-              fav.push(hero);
-              localStorage.setItem('favorite', JSON.stringify(fav));
-            }
-            
-          }
-        })
-
-        li.addEventListener('click', () => {
-            localStorage.setItem("Hero",JSON.stringify(hero));
-            window.open('hero.html');
-        })
 
         ul.append(li);
         searchResultElement.append(ul);
