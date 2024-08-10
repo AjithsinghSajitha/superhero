@@ -4,6 +4,7 @@ import { addOrRemoveFavorite } from "./setFavorite.mjs";
 let searchTerm = localStorage.getItem("SearchTerm");
 let searchCount = document.getElementById("search-count");
 let searchResultElement = document.getElementById("search-result");
+let loading = document.getElementById("search-loader");
 
 /**
  * This will provide searched heros based on search term
@@ -13,14 +14,15 @@ const searchResult = async () => {
     const heroData = await fetch(searchUrl(searchTerm));
     const data = await heroData.json();
     let count = parseInt(data.data.total);
+    
     count
       ? (searchCount.innerText = `Result found: ${count}`)
       : (searchCount.innerText = "No result found");
 
+    loading.setAttribute("style", "display: none;");
     if (count) {
-      
-      
       let ul = document.createElement("ul");
+
       data.data.results.map((hero, i) => {
         console.log(count);
         let li = document.createElement("li");
@@ -40,10 +42,10 @@ const searchResult = async () => {
         span.innerText = `${i + 1}) ${name}`;
         favorite.innerHTML = '<i class="fa-solid fa-star"></i>';
 
-        if(favItem.length){
+        if (favItem.length) {
           favItem.map((item) => {
             if (item.id == hero.id) {
-              console.log("Inside map "+count);
+              console.log("Inside map " + count);
               favorite.classList.add("star-yellow");
             }
           });

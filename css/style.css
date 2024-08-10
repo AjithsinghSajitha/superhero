@@ -25,6 +25,7 @@ img {
 }
 
 #load,
+#search-loader,
 .heroes-covers {
   display: grid;
   grid-template-columns: 1fr;
