@@ -5,6 +5,9 @@ let searchTerm = localStorage.getItem("SearchTerm");
 let searchCount = document.getElementById("search-count");
 let searchResultElement = document.getElementById("search-result");
 
+/**
+ * This will provide searched heros based on search term
+ */
 const searchResult = async () => {
   try {
     const heroData = await fetch(searchUrl(searchTerm));
@@ -39,7 +42,7 @@ const searchResult = async () => {
             favorite.classList.add("star-yellow");
           }
         });
-        
+
         addOrRemoveFavorite(favorite, hero);
 
         li.addEventListener("click", () => {
