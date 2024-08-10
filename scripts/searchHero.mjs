@@ -18,13 +18,16 @@ const searchResult = async () => {
       : (searchCount.innerText = "No result found");
 
     if (count) {
+      
+      
       let ul = document.createElement("ul");
       data.data.results.map((hero, i) => {
+        console.log(count);
         let li = document.createElement("li");
         let span = document.createElement("span");
         let favorite = document.createElement("span");
         let img = document.createElement("img");
-        let favItem = JSON.parse(localStorage.getItem("favorite"));
+        let favItem = JSON.parse(localStorage.getItem("favorite")) || [];
         let name = hero.name;
         let thumb = hero.thumbnail;
 
@@ -37,11 +40,14 @@ const searchResult = async () => {
         span.innerText = `${i + 1}) ${name}`;
         favorite.innerHTML = '<i class="fa-solid fa-star"></i>';
 
-        favItem.map((item) => {
-          if (item.id == hero.id) {
-            favorite.classList.add("star-yellow");
-          }
-        });
+        if(favItem.length){
+          favItem.map((item) => {
+            if (item.id == hero.id) {
+              console.log("Inside map "+count);
+              favorite.classList.add("star-yellow");
+            }
+          });
+        }
 
         addOrRemoveFavorite(favorite, hero);
 

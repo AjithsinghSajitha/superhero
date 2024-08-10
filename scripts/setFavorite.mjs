@@ -11,19 +11,11 @@ export const addOrRemoveFavorite = (element, hero) => {
       element.classList.add("star-yellow");
     } else {
       let fav = JSON.parse(localStorage.getItem("favorite"));
-      let index = -1;
-      let isAlreadyExist;
-      fav.every((item, i) => {
-        if (item.id == hero.id) {
-          isAlreadyExist = true;
-          index = i;
-          return false;
-        }
-        return true;
-      });
+
+      let { isAlreadyExist, index } = findindex(hero.id, fav);
 
       isAlreadyExist
-        ? removeFav(element, fav, index)
+        ? removeFav(fav, index, element)
         : addFav(element, fav, hero);
     }
   });
@@ -35,10 +27,12 @@ export const addOrRemoveFavorite = (element, hero) => {
  * @param {Array} fav - Favorite list array
  * @param {Number} index - current index of the hero to be removed
  */
-function removeFav(element, fav, index) {
+function removeFav(fav, index, element = null) {
   fav.splice(index, 1);
   localStorage.setItem("favorite", JSON.stringify(fav));
-  element.classList.remove("star-yellow");
+  if (element) {
+    element.classList.remove("star-yellow");
+  }
 }
 
 /**
@@ -51,4 +45,34 @@ function addFav(element, fav, hero) {
   fav.push(hero);
   localStorage.setItem("favorite", JSON.stringify(fav));
   element.classList.add("star-yellow");
+}
+
+/**
+ * This will find the index of the hero from the fav array
+ * @param {string} id - Hero id
+ * @param {Array} fav - Favorite list array
+ * @return {Object} -  Index and isAlreadyExist as an object
+ */
+function findindex(id, fav) {
+  let index = -1;
+  let isAlreadyExist;
+  fav.every((item, i) => {
+    if (item.id == id) {
+      isAlreadyExist = true;
+      index = i;
+      return false;
+    }
+    return true;
+  });
+  return { isAlreadyExist: isAlreadyExist, index: index };
+}
+
+/**
+ * This will find the index of the hero from the fav array nad remove the hero item
+ * @param {string} id - Hero id
+ * @param {Array} fav - Favorite list array
+ */
+export function removeFromFavorite(id, fav) {
+  let { isAlreadyExist, index } = findindex(id, fav);
+  if (isAlreadyExist) removeFav(fav, index);
 }
