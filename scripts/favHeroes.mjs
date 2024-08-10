@@ -2,7 +2,7 @@ import { removeFromFavorite } from "./setFavorite.mjs";
 
 let fav = JSON.parse(localStorage.getItem("favorite"));
 let ul = document.createElement("ul");
-let heroContainer = document.getElementById('fav-container');
+let heroContainer = document.getElementById("fav-container");
 
 fav.map((hero, index) => {
   let li = document.createElement("li");
@@ -19,14 +19,19 @@ fav.map((hero, index) => {
 
   img.setAttribute("src", path);
   img.setAttribute("alt", name);
-  span.innerText = `${index + 1}) ${name}`;
+  span.innerText = `    ${name}`;
   remove.innerHTML = '<i class="fa-solid fa-trash"></i>';
-  remove.classList.add('remove');
-  li.classList.add('arrange-items');
+  remove.classList.add("remove");
+  li.classList.add("arrange-items");
 
-  remove.addEventListener('click', ()=>{
+  remove.addEventListener("click", () => {
     removeFromFavorite(hero.id, fav);
-  })
+    li.classList.add("hide-anim");
+    setTimeout(() => {
+      li.classList.add("hide");
+      li.remove();
+    }, 1000);
+  });
 
   div.append(img);
   div.append(span);
