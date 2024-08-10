@@ -23,8 +23,8 @@ export const addOrRemoveFavorite = (element, hero) => {
       });
 
       isAlreadyExist
-        ? addFav(element, fav, index)
-        : removeFav(element, fav, hero);
+        ? removeFav(element, fav, index)
+        : addFav(element, fav, hero);
     }
   });
 };
@@ -35,7 +35,7 @@ export const addOrRemoveFavorite = (element, hero) => {
  * @param {Array} fav - Favorite list array
  * @param {Number} index - current index of the hero to be removed
  */
-function addFav(element, fav, index) {
+function removeFav(element, fav, index) {
   fav.splice(index, 1);
   localStorage.setItem("favorite", JSON.stringify(fav));
   element.classList.remove("star-yellow");
@@ -47,7 +47,7 @@ function addFav(element, fav, index) {
  * @param {Array} fav - Favorite list array
  * @param {object} hero - an item from favorite stored in local storage
  */
-function removeFav(element, fav, hero) {
+function addFav(element, fav, hero) {
   fav.push(hero);
   localStorage.setItem("favorite", JSON.stringify(fav));
   element.classList.add("star-yellow");
