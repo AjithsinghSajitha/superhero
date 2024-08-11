@@ -5,9 +5,9 @@ let searchCount = document.getElementById("search-count");
 let searchResultElement = document.getElementById("search-result");
 let loading = document.getElementById("search-loader");
 
-
 /**
  * This will provide searched heros based on search term
+ * @param {string} searchTerm - Search text
  */
 export const searchResult = async (searchTerm) => {
   try {
@@ -27,6 +27,7 @@ export const searchResult = async (searchTerm) => {
 
     loading.setAttribute("style", "display: none;");
     searchCount.setAttribute("style", "display: block;");
+
     if (count) {
       let ul = document.createElement("ul");
 
@@ -39,7 +40,6 @@ export const searchResult = async (searchTerm) => {
         let favItem = JSON.parse(localStorage.getItem("favorite")) || [];
         let name = hero.name;
         let thumb = hero.thumbnail;
-
         let path = !thumb
           ? "https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
           : `${thumb.path}.${thumb.extension}`;
@@ -78,5 +78,3 @@ export const searchResult = async (searchTerm) => {
   console.log("Info:  ~ searchResult ~ error:", error)
   }
 };
-
-// searchResult();

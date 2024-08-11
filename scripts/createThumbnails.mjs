@@ -49,7 +49,7 @@ const getHeroThumbnail = async (url) => {
   }
 };
 
-// Generate Covers
+// Generate Covers from thumbnail data
 export const getThumbnails = async () => {
   try {
     heroesCovers.setAttribute("style", "display: none;");

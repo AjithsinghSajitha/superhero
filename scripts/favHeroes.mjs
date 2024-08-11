@@ -4,7 +4,7 @@ let fav = JSON.parse(localStorage.getItem("favorite"));
 let ul = document.createElement("ul");
 let heroContainer = document.getElementById("fav-container");
 
-fav.reverse().map((hero, index) => {
+fav.reverse().map((hero) => {
   let li = document.createElement("li");
   let span = document.createElement("span");
   let remove = document.createElement("span");
