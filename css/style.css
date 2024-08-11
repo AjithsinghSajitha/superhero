@@ -21,6 +21,7 @@ body {
 
 img {
   width: 400px;
+  height: 400px;
 }
 
 a {
@@ -173,7 +174,7 @@ input::placeholder {
   content: attr(data-text);
   z-index: 3;
   right: 200px;
-  top: 350px;
+  top: 300px;
   font-size: 1.7rem;
   transform: translateX(50%);
 }
