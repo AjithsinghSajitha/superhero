@@ -26,12 +26,20 @@
               placeholder="Search your hero here"
             />
           </div>
-          <button type="button" id="search-btn" class="button">Search</button>
+          <button type="button" id="search-btn" class="button"><a href="#search-loader">Search</a></button>
         </div>
-
         <div id="hero-cover" class="sankofa-display-regular"></div>
+        <div class="favorite">
+          <a href="pages/favorite.html" target="_blank">GO TO FAVORITE HERO PAGE</a>
+        </div>
+        
       </div>
     </div>
+    <div id="search-loader">
+      <div class="loader" data-text="Loading..."></div>
+    </div>
+    <h1 id="search-count"></h1>
+    <div id="search-result"></div>
 
     <script type="module" src="./index.mjs"></script>
   </body>
