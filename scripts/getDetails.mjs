@@ -46,8 +46,6 @@ export const getDetails = async (
       let tdName = document.createElement("td");
       let tdDesc = document.createElement("td");
       let tdImg = document.createElement("td");
-
-      // let div = document.createElement("div");
       let img = document.createElement("img");
       let name = item.title;
       let desc = item.description ? item.description : "No description found";
