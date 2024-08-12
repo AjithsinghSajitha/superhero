@@ -4,11 +4,14 @@ import { getDetails } from "./getDetails.mjs";
 let tbody = document.getElementById("comic-list");
 let loading = document.getElementById("loading-comic");
 let comicsList = document.getElementById('comics-list')
+
 comicsList.setAttribute("style", "display: none;");
+
 /**
  * This will call getDetails and create the comic table
  * @param {string} id - hero id
+ * @param {Number} offset - offset for loading more data
  */
-export const getComics = async (id) => {
-    await getDetails(comicsUrl(id),tbody,comicsList, loading);
+export const getComics = async (id, offset) => {
+    await getDetails(comicsUrl(id, offset),tbody,comicsList, loading, offset);
 };

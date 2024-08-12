@@ -8,7 +8,8 @@ seriesList.setAttribute("style", "display: none;");
 /**
  * This will call getDetails and create the series table
  * @param {string} id - hero id
+ * @param {Number} offset - offset for loading more data
  */
-export const getSeries = async (id) => {
-    await getDetails(seriesUrl(id),tbody,seriesList, loading);
+export const getSeries = async (id, offset) => {
+    await getDetails(seriesUrl(id, offset),tbody,seriesList, loading, offset);
 };

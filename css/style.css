@@ -21,7 +21,6 @@ body {
 
 img {
   width: 400px;
-  height: 400px;
 }
 
 a {
@@ -133,6 +132,7 @@ input::placeholder {
 }
 
 .heroes-covers img {
+  height: 400px;
   position: relative;
   cursor: pointer;
   -webkit-filter: grayscale(100%);

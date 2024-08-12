@@ -5,13 +5,13 @@
  * @param {HTMLElement} element - Element for the table to be appended
  * @param {HTMLElement} loading - Element for the loader
  */
-export const getDetails = async (url, tbody, element, loading) => {
+export const getDetails = async (url, tbody, element, loading, offset = 0) => {
   try {
     const heroData = await fetch(url);
     const data = await heroData.json();
 
-    if(!data.data.results.length){
-      element.innerText = 'No data found'
+    if (!data.data.results.length) {
+      element.innerText = "No data found";
       loading.setAttribute("style", "display: none;");
       element.setAttribute("style", "display: block;");
       return;
@@ -40,7 +40,7 @@ export const getDetails = async (url, tbody, element, loading) => {
       tdName.classList.add("td-name");
       tdDesc.classList.add("td-desc");
 
-      tdId.innerText = i + 1;
+      tdId.innerText = i + offset + 1;
       tdName.innerText = name;
       tdDesc.innerText = desc;
       tdImg.append(img);
