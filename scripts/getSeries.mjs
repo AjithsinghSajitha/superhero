@@ -10,6 +10,6 @@ seriesList.setAttribute("style", "display: none;");
  * @param {string} id - hero id
  * @param {Number} offset - offset for loading more data
  */
-export const getSeries = async (id, offset) => {
-    await getDetails(seriesUrl(id, offset),tbody,seriesList, loading, offset);
+export const getSeries = async (id, offset, btnElement) => {
+    await getDetails(seriesUrl(id, offset),tbody,seriesList, loading, btnElement, offset);
 };

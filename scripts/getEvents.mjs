@@ -12,6 +12,6 @@ eventList.setAttribute("style", "display: none;");
  * @param {string} id - hero id
  * @param {Number} offset - offset for loading more data
  */
-export const getEvents = async (id, offset) => {
-    await getDetails(eventsUrl(id, offset),tbody,eventList, loading, offset);
+export const getEvents = async (id, offset, btnElement) => {
+    await getDetails(eventsUrl(id, offset),tbody,eventList, loading, btnElement, offset);
 };

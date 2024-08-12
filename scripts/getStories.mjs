@@ -10,6 +10,6 @@ storyList.setAttribute("style", "display: none;");
  * @param {string} id - hero id
  * @param {Number} offset - offset for loading more data
  */
-export const getStories = async (id, offset) => {
-    await getDetails(storiesUrl(id, offset),tbody,storyList, loading, offset);
+export const getStories = async (id, offset, btnElement) => {
+    await getDetails(storiesUrl(id, offset),tbody,storyList, loading, btnElement, offset);
 };

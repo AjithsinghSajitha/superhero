@@ -330,6 +330,10 @@ table caption {
   margin: auto;
 }
 
+.btn-disabled-text{
+  color: white;
+}
+
 .td-name {
   font-size: 1.5rem;
   color: gray !important;

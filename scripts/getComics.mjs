@@ -12,6 +12,6 @@ comicsList.setAttribute("style", "display: none;");
  * @param {string} id - hero id
  * @param {Number} offset - offset for loading more data
  */
-export const getComics = async (id, offset) => {
-    await getDetails(comicsUrl(id, offset),tbody,comicsList, loading, offset);
+export const getComics = async (id, offset, btnElement) => {
+    await getDetails(comicsUrl(id, offset),tbody,comicsList, loading, btnElement, offset);
 };

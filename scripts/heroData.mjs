@@ -31,20 +31,20 @@ Promise.all(promises)
 
 loadMoreComics.addEventListener('click', ()=>{
   offsetComic+=5;
-  getComics(heroData.id, offsetComic)
+  getComics(heroData.id, offsetComic, loadMoreComics)
 });
 
 loadMoreSeries.addEventListener('click', ()=>{
   offsetSeries+=5;
-  getSeries(heroData.id, offsetSeries)
+  getSeries(heroData.id, offsetSeries, loadMoreSeries)
 });
 
 loadMoreEvents.addEventListener('click', ()=>{
   offsetEvents+=5;
-  getEvents(heroData.id, offsetEvents)
+  getEvents(heroData.id, offsetEvents, loadMoreEvents)
 });
 
 loadMoreStories.addEventListener('click', ()=>{
   offsetStory+=5;
-  getStories(heroData.id, offsetStory)
+  getStories(heroData.id, offsetStory, loadMoreStories)
 });

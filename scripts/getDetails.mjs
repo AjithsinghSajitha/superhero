@@ -4,18 +4,41 @@
  * @param {HTMLElement} tbody -Table body
  * @param {HTMLElement} element - Element for the table to be appended
  * @param {HTMLElement} loading - Element for the loader
+ * @param {HTMLElement} btn - Element for the load more button
+ * @param {Number} offset - Offset for loading more
  */
-export const getDetails = async (url, tbody, element, loading, offset = 0) => {
+export const getDetails = async (
+  url,
+  tbody,
+  element,
+  loading,
+  btn,
+  offset = 0
+) => {
   try {
+    if(btn) btn.disabled = true;
+
     const heroData = await fetch(url);
     const data = await heroData.json();
 
-    if (!data.data.results.length) {
+    if (!data.data.results.length && !offset) {
       element.innerText = "No data found";
       loading.setAttribute("style", "display: none;");
       element.setAttribute("style", "display: block;");
       return;
     }
+
+    let totalPage = parseInt(data.data.total) / 5;
+    let pageDemand = offset / 5; 
+
+    if (pageDemand >= totalPage) {
+      btn.disabled = true;
+      btn.innerText = 'No more data available';
+      btn.classList.add('btn-disabled-text');
+      return;
+    }
+
+    if(btn) btn.disabled = false;
 
     data.data.results.map((item, i) => {
       let tr = document.createElement("tr");
