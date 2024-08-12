@@ -11,13 +11,11 @@ let loadMoreComics = document.getElementById("load-comic");
 let loadMoreSeries = document.getElementById("load-series");
 let loadMoreEvents = document.getElementById("load-event");
 let loadMoreStories = document.getElementById("load-story");
-
+let path = `${heroData.thumbnail.path}.${heroData.thumbnail.extension}`;
 let offsetComic = 0;
 let offsetSeries = 0;
 let offsetEvents = 0;
 let offsetStory = 0;
-
-let path = `${heroData.thumbnail.path}.${heroData.thumbnail.extension}`;
 
 document.title = heroData.name;
 heroName.innerText = heroData.name;
@@ -29,22 +27,20 @@ getSeries(heroData.id, offsetSeries);
 getEvents(heroData.id, offsetEvents);
 getStories(heroData.id, offsetStory);
 
-loadMoreComics.addEventListener("click", () => {
-  offsetComic += 5;
-  getComics(heroData.id, offsetComic, loadMoreComics);
-});
+loadMore(offsetComic, loadMoreComics, getComics);
+loadMore(offsetSeries, loadMoreSeries, getSeries);
+loadMore(offsetEvents, loadMoreEvents, getEvents);
+loadMore(offsetStory, loadMoreStories, getStories);
 
-loadMoreSeries.addEventListener("click", () => {
-  offsetSeries += 5;
-  getSeries(heroData.id, offsetSeries, loadMoreSeries);
-});
-
-loadMoreEvents.addEventListener("click", () => {
-  offsetEvents += 5;
-  getEvents(heroData.id, offsetEvents, loadMoreEvents);
-});
-
-loadMoreStories.addEventListener("click", () => {
-  offsetStory += 5;
-  getStories(heroData.id, offsetStory, loadMoreStories);
-});
+/**
+ * This will load more data in to the hero detail tables
+ * @param {Number} offset - offset for loading more data
+ * @param {HTMLElement} btnElement - Element for the load button
+ * @param {Function} getFunction - Function to get data
+ */
+function loadMore(offset, btnElement, getFunction){
+  btnElement.addEventListener("click", () => {
+    offset += 5;
+    getFunction(heroData.id, offset, btnElement);
+  });
+}
