@@ -3,7 +3,7 @@ import { getDetails } from "./getDetails.mjs";
 
 let tbody = document.getElementById("event-list");
 let loading = document.getElementById("loading-events");
-let eventList = document.getElementById('events-list-container')
+let eventList = document.getElementById("events-list-container");
 
 eventList.setAttribute("style", "display: none;");
 
@@ -13,6 +13,13 @@ eventList.setAttribute("style", "display: none;");
  * @param {Number} offset - offset for loading more data
  * @param {HTMLElement} btnElement - Element for the load more button
  */
-export const getEvents = async (id, offset, btnElement) => {
-    await getDetails(eventsUrl(id, offset),tbody,eventList, loading, btnElement, offset);
+export const getEvents = (id, offset, btnElement) => {
+  getDetails(
+    eventsUrl(id, offset),
+    tbody,
+    eventList,
+    loading,
+    btnElement,
+    offset
+  );
 };

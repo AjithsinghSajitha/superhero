@@ -3,7 +3,7 @@ import { getDetails } from "./getDetails.mjs";
 
 let tbody = document.getElementById("comic-list");
 let loading = document.getElementById("loading-comic");
-let comicsList = document.getElementById('comics-list')
+let comicsList = document.getElementById("comics-list");
 
 comicsList.setAttribute("style", "display: none;");
 
@@ -13,6 +13,13 @@ comicsList.setAttribute("style", "display: none;");
  * @param {Number} offset - offset for loading more data
  * @param {HTMLElement} btnElement - Element for the load more button
  */
-export const getComics = async (id, offset, btnElement) => {
-    await getDetails(comicsUrl(id, offset),tbody,comicsList, loading, btnElement, offset);
+export const getComics = (id, offset, btnElement) => {
+  getDetails(
+    comicsUrl(id, offset),
+    tbody,
+    comicsList,
+    loading,
+    btnElement,
+    offset
+  );
 };

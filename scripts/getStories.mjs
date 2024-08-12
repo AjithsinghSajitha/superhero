@@ -3,7 +3,7 @@ import { getDetails } from "./getDetails.mjs";
 
 let tbody = document.getElementById("story-list");
 let loading = document.getElementById("loading-stories");
-let storyList = document.getElementById('story-list-container')
+let storyList = document.getElementById("story-list-container");
 
 storyList.setAttribute("style", "display: none;");
 
@@ -13,6 +13,13 @@ storyList.setAttribute("style", "display: none;");
  * @param {Number} offset - offset for loading more data
  * @param {HTMLElement} btnElement - Element for the load more button
  */
-export const getStories = async (id, offset, btnElement) => {
-    await getDetails(storiesUrl(id, offset),tbody,storyList, loading, btnElement, offset);
+export const getStories = (id, offset, btnElement) => {
+  getDetails(
+    storiesUrl(id, offset),
+    tbody,
+    storyList,
+    loading,
+    btnElement,
+    offset
+  );
 };

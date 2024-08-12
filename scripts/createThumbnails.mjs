@@ -50,7 +50,7 @@ const getHeroThumbnail = async (url) => {
 };
 
 // Generate Covers from thumbnail data
-export const getThumbnails = async () => {
+export const getThumbnails = () => {
   try {
     heroesCovers.setAttribute("style", "display: none;");
     homePageCovers.map(cover => promises.push(getHeroThumbnail(heroUrl(cover))));

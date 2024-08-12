@@ -3,7 +3,7 @@ import { getDetails } from "./getDetails.mjs";
 
 let tbody = document.getElementById("series-list");
 let loading = document.getElementById("loading-series");
-let seriesList = document.getElementById('series-list-container')
+let seriesList = document.getElementById("series-list-container");
 
 seriesList.setAttribute("style", "display: none;");
 
@@ -13,6 +13,13 @@ seriesList.setAttribute("style", "display: none;");
  * @param {Number} offset - offset for loading more data
  * @param {HTMLElement} btnElement - Element for the load more button
  */
-export const getSeries = async (id, offset, btnElement) => {
-    await getDetails(seriesUrl(id, offset),tbody,seriesList, loading, btnElement, offset);
+export const getSeries = (id, offset, btnElement) => {
+  getDetails(
+    seriesUrl(id, offset),
+    tbody,
+    seriesList,
+    loading,
+    btnElement,
+    offset
+  );
 };
