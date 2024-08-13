@@ -46,6 +46,7 @@ if (fav.length) {
   });
 }
 
+//If no favorite found shows message
 function noFavorite(){
   if (!fav || !fav.length) {
     heroContainer.classList.add("no-fav");
