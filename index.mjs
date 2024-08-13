@@ -6,8 +6,11 @@ let search = document.getElementById('search');
 
 searchBtn.addEventListener('click',()=>{
   let searchTerm = search.value;
+
+  if(searchTerm){
+    searchResult(searchTerm);
+  }
   
-  searchResult(searchTerm);
   search.value ='';
 });
 
