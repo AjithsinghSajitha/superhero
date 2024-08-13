@@ -405,3 +405,25 @@ table caption {
   }
 }
 /* Favorite heroes Page - End */
+
+/* Media */
+@media only screen and (max-width: 1620px) {
+  .heroes-covers img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 1620px) {
+  .heroes-covers img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .heroes-covers img {
+    width: 200px;
+    height: 200px;
+  }
+}
