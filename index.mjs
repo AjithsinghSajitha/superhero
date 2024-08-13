@@ -11,6 +11,12 @@ searchBtn.addEventListener('click',()=>{
   search.value ='';
 });
 
+search.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    searchBtn.click();
+  }
+});
+
 (function init() {
   getThumbnails();
 })();
