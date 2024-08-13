@@ -27,4 +27,5 @@ Followed by Comic, Series, Events and Story Tables are shown one after other if
 ![Hero Detail table ex](<img/md/Hero tables.png>)
 
 ## Favorite Page
-Favorites are set from the [home page](#home)
+![Favorite heroes](<img/md/Favorite heroes.png>)<br />
+Favorites are set from the [home page](#home) search result. Clicking on the 'GO TO FAVORITE HERO PAGE' Button, a new page will open with favorite heroes. Each hero has a remove button available, upon clicking the button the hero is removed from the list.
