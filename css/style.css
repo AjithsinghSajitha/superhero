@@ -419,4 +419,10 @@ table caption {
     width: 200px;
     height: 200px;
   }
+
+  .search input {
+    width: 300px;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
 }
